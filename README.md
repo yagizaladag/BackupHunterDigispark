@@ -1,4 +1,4 @@
-# Backup Files Theft Script
+# BackupHunter
 
 ## Description
 
