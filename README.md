@@ -1,24 +1,37 @@
-DigisparkBackupMailer
+# DigisparkBackupMailer
+
 A simple and effective solution to automatically collect backup files from all users on a system using the Digispark microcontroller. The backup files are then sent to a predefined email address for safekeeping.
 
-Disclaimer: This project is for educational and testing purposes only. It should not be used for malicious intent or unauthorized access. Always ensure you have explicit permission before running any security or automation tools on any system.
+> **Disclaimer:** This project is for educational and testing purposes only. It should not be used for malicious intent or unauthorized access. Always ensure you have explicit permission before running any security or automation tools on any system.
 
-Features
-Backup Collection: Automatically copies files from all user directories to a designated backup folder.
-Email Sending: Sends the backup files via email to a static email address.
-Platform: Powered by the Digispark USB microcontroller.
-Lightweight: Runs efficiently on small embedded devices like Digispark.
-Requirements
-Digispark USB Development Board: Ensure you have the Digispark board connected and properly configured.
-DigiKeyboard Library: Used to simulate keyboard input.
-Microsoft Outlook: Configured on the system for email sending (customizable for different email clients).
-Windows Operating System: Designed for use on Windows platforms.
-Setup and Usage
-Clone or Download the Repository:
+---
 
-bash
-Kodu kopyala
-git clone https://github.com/yourusername/DigisparkBackupMailer.git
+## Features
+
+- **Backup Collection**: Automatically copies files from all user directories to a designated backup folder.
+- **Email Sending**: Sends the backup files via email to a static email address.
+- **Platform**: Powered by the Digispark USB microcontroller.
+- **Lightweight**: Runs efficiently on small embedded devices like Digispark.
+
+---
+
+## Requirements
+
+- **Digispark USB Development Board**: Ensure you have the Digispark board connected and properly configured.
+- **DigiKeyboard Library**: Used to simulate keyboard input.
+- **Microsoft Outlook**: Configured on the system for email sending (customizable for different email clients).
+- **Windows Operating System**: Designed for use on Windows platforms.
+
+---
+
+## Setup and Usage
+
+1. **Clone or Download the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/DigisparkBackupMailer.git
+
+
+
 Install DigiKeyboard Library:
 
 Open Arduino IDE.
@@ -55,3 +68,8 @@ Email: yagiz_aladag@hotmail.com
 
 Final Note
 The DigisparkBackupMailer project demonstrates how embedded devices like Digispark can be used to automate simple tasks. Be mindful of privacy and legality when experimenting with such projects.
+
+css
+Kodu kopyala
+
+Bu **README.md** dosyasını GitHub'a yüklediğinizde, Markdown formatında düzgün bir şekilde 
