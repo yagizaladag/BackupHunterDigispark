@@ -69,7 +69,3 @@ Email: yagiz_aladag@hotmail.com
 Final Note
 The DigisparkBackupMailer project demonstrates how embedded devices like Digispark can be used to automate simple tasks. Be mindful of privacy and legality when experimenting with such projects.
 
-css
-Kodu kopyala
-
-Bu **README.md** dosyasını GitHub'a yüklediğinizde, Markdown formatında düzgün bir şekilde 
